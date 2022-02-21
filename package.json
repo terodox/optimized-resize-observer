@@ -1,0 +1,34 @@
+{
+  "name": "optimized-resize-observer",
+  "version": "0.0.0",
+  "description": "A simple contract for creating ResizeObervers with some basic bells and whistles",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "test": "wtr **/*.spec.js --node-resolve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terodox/optimized-resize-observer.git"
+  },
+  "keywords": [
+    "resizeobserver",
+    "frontend",
+    "resize",
+    "observer",
+    "optimized",
+    "debounce"
+  ],
+  "author": "Andy Desmarais <terodox@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "bugs": {
+    "url": "https://github.com/terodox/optimized-resize-observer/issues"
+  },
+  "homepage": "https://github.com/terodox/optimized-resize-observer#readme",
+  "devDependencies": {
+    "local-web-server": "5.1.1",
+    "tsc": "2.0.4",
+    "typescript": "4.5.4",
+    "vite": "2.8.4"
+  }
+}

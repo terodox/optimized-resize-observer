@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo for Optimized ResizeObserver</title>
+    <script type="module">
+        import { debouncedResizeObserver, throttledResizeObserver } from '../dist/index.js';
+
+        const debouncedOne = document.querySelector('#debounced-one');
+        const debouncedTwo = document.querySelector('#debounced-two');
+        const throttledOne = document.querySelector('#throttled-one');
+        const throttledTwo = document.querySelector('#throttled-two');
+        const unobserved = document.querySelector('#unobserved');
+
+        function updatedTimeUpdater({entry}) {
+            const element = entry.target;
+            if(!element.dataset.count) {
+                element.dataset.count = '0';
+            }
+            element.dataset.count = parseInt(element.dataset.count) + 1;
+            element.textContent = `update time: ${(new Date()).valueOf()} - Called times: ${element.dataset.count}`;
+        }
+
+        // debounced
+        const debouncedObserverOne = debouncedResizeObserver({
+            singleEntryCallback: updatedTimeUpdater,
+            debounceTimeInMs: 100
+        });
+        debouncedObserverOne.observe(debouncedOne);
+        const debouncedObserverTwo = debouncedResizeObserver({
+            singleEntryCallback: updatedTimeUpdater,
+            debounceTimeInMs: 1000
+        });
+        debouncedObserverTwo.observe(debouncedTwo);
+
+        // throttled
+        const throttledObserverOne = throttledResizeObserver({
+            singleEntryCallback: updatedTimeUpdater,
+            throttleTimeInMs: 100
+        });
+        throttledObserverOne.observe(throttledOne);
+        const throttledObserverTwo = throttledResizeObserver({
+            singleEntryCallback: updatedTimeUpdater,
+            throttleTimeInMs: 1000
+        });
+        throttledObserverTwo.observe(throttledTwo);
+    </script>
+    <style>
+        div {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="debounced-one"></div>
+    <div id="debounced-two"></div>
+    <div id="throttled-one"></div>
+    <div id="throttled-two"></div>
+    <div id="unobserved">Will not change - unobserved</div>
+</body>
+</html>
