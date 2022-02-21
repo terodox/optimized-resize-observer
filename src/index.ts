@@ -1,8 +1,6 @@
 import { loopAllEntries } from './loop-all-entries.js';
 import { ResizeObserverSingleEntryCallback } from './resize-observer-single-entry-callback.js';
 
-export { ResizeObserverSingleEntryCallback } from './resize-observer-single-entry-callback.js';
-
 /**
  * A function to push out the execution of any callbacks until a resize event has not occurred on any observed element for the provided debounceTimeInMs
  *

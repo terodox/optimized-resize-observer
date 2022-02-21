@@ -8,6 +8,12 @@ export function loopAllEntries({
     singleEntryCallback: ResizeObserverSingleEntryCallback;
 }): void {
     for (const entry of entries) {
-        singleEntryCallback({ entry });
+        try {
+            console.log('still calling');
+            singleEntryCallback({ entry });
+        } catch (error) {
+            console.log('ohs nos');
+            throw error;
+        }
     }
 }

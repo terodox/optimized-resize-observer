@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo for Optimized ResizeObserver</title>
     <script type="module">
-        import { debouncedResizeObserver, throttledResizeObserver } from '../dist/index.js';
+        import { debouncedResizeObserver, throttledResizeObserver } from '../src/index.ts';
 
         const debouncedOne = document.querySelector('#debounced-one');
         const debouncedTwo = document.querySelector('#debounced-two');
@@ -53,10 +53,19 @@
     </style>
 </head>
 <body>
+    <h1>Optimized Resize Observer Demo</h1>
+    <h2>Debounce: 100ms</h2>
     <div id="debounced-one"></div>
+    <h2>Debounce: 1000ms</h2>
     <div id="debounced-two"></div>
+
+    <h2>Throttle: 100ms</h2>
     <div id="throttled-one"></div>
+
+    <h2>Throttle: 1000ms</h2>
     <div id="throttled-two"></div>
+
+    <h2>Unobserved</h2>
     <div id="unobserved">Will not change - unobserved</div>
 </body>
 </html>
