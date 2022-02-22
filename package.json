@@ -10,9 +10,14 @@
       "require": "./dist/optimized-resize-observer.umd.js"
     }
   },
+  "files": [
+    "./dist/optimized-resize-observer.es.js",
+    "./dist/optimized-resize-observer.umd.js"
+  ],
   "scripts": {
     "build": "vite build",
     "postversion": "git push --follow-tags",
+    "prepublish": "npm run build",
     "start": "vite",
     "start-bundled": "vite",
     "test": "vitest",
