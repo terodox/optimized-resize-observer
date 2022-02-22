@@ -1,0 +1,13 @@
+# Folders
+demo/
+node_modules/
+
+# Files
+.drone.yml
+.editorconfig
+.nvmrc
+.gitignore
+package-lock.json
+tsconfig.json
+vite.config.js
+README.md
