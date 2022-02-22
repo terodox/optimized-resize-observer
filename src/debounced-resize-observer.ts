@@ -10,7 +10,7 @@ import { ResizeObserverSingleEntryCallback } from './resize-observer-single-entr
  *
  * @returns {ResizeObserver} The resize observer that was created with debounce handling
  */
-export function throttleResizeObserver({
+export function debouncedResizeObserver({
     singleEntryCallback,
     debounceTimeInMs,
 }: {

@@ -2,10 +2,19 @@
   "name": "optimized-resize-observer",
   "version": "0.0.0",
   "description": "ResizeObservers can be tricky to throttle and debounce. This package delivers both in a very easy to use format!",
-  "main": "index.js",
+  "main": "./dist/optimized-resize-observer.umd.js",
+  "module": "./dist/optimized-resize-observer.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/optimized-resize-observer.es.js",
+      "require": "./dist/optimized-resize-observer.umd.js"
+    }
+  },
   "scripts": {
+    "build": "vite build",
     "postversion": "git push --follow-tags",
     "start": "vite",
+    "start-bundled": "vite",
     "test": "vitest",
     "update": "npx npm-check -uE"
   },
@@ -19,7 +28,8 @@
     "resize",
     "observer",
     "optimized",
-    "debounce"
+    "debounce",
+    "throttle"
   ],
   "author": "Andy Desmarais <terodox@gmail.com>",
   "license": "SEE LICENSE IN LICENSE FILE",
