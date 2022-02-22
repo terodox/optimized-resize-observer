@@ -1,6 +1,6 @@
 {
   "name": "optimized-resize-observer",
-  "version": "0.0.2-2",
+  "version": "0.0.2-3",
   "description": "ResizeObservers can be tricky to throttle and debounce. This package delivers both in a very easy to use format!",
   "main": "./dist/optimized-resize-observer.umd.js",
   "module": "./dist/optimized-resize-observer.es.js",
