@@ -3,6 +3,7 @@ export default {
         open: '/demo/index.html'
     },
     test: {
-        environment: 'jsdom'
+        environment: 'jsdom',
+        reporters: 'dot'
     }
 };

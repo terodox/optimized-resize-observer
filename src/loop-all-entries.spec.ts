@@ -27,9 +27,7 @@ describe('loop all entries', () => {
         let callCount = 0;
         const singleEntryCallback = vi.fn().mockImplementation(() => {
             callCount++;
-            console.log(callCount);
             if (callCount === 2) {
-                console.log('Boom');
                 throw new Error('this one fails!');
             }
         });

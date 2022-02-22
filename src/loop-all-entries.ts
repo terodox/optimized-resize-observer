@@ -9,7 +9,6 @@ export function loopAllEntries({
 }): void {
     for (const entry of entries) {
         try {
-            console.log('still calling');
             singleEntryCallback({ entry });
         } catch (error) {
             console.warn(
