@@ -19,6 +19,15 @@ steps:
   commands:
   - npm test
 
+- name: build
+  pull: default
+  image: node:16
+  commands:
+  - npm run build
+  when:
+    event:
+    - tag
+
 - name: deploy
   pull: default
   image: node:16
