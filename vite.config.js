@@ -1,4 +1,4 @@
-import pkg from './package.json';
+import dts from 'vite-dts';
 
 const config = {
     build: {
@@ -13,6 +13,9 @@ const config = {
             }
         }
     },
+    plugins: [
+        dts()
+    ],
     server: {
         open: '/demo/index.html'
     },

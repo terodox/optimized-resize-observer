@@ -11,8 +11,8 @@
     }
   },
   "files": [
-    "./dist/optimized-resize-observer.es.js",
-    "./dist/optimized-resize-observer.umd.js"
+    "./dist/*",
+    "./src/*"
   ],
   "scripts": {
     "build": "vite build",
@@ -47,6 +47,7 @@
     "jsdom": "19.0.0",
     "tsc": "2.0.4",
     "vite": "2.8.4",
+    "vite-dts": "1.0.4",
     "vitest": "0.5.0"
   }
 }
