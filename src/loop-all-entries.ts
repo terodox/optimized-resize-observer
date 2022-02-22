@@ -12,8 +12,13 @@ export function loopAllEntries({
             console.log('still calling');
             singleEntryCallback({ entry });
         } catch (error) {
-            console.log('ohs nos');
-            throw error;
+            console.warn(
+                `optimizedResizeObserver: failed attempting to invoke singleEntryCallback with entry: ${JSON.stringify(
+                    entry,
+                    null,
+                    2
+                )}`
+            );
         }
     }
 }

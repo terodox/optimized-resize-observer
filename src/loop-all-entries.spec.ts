@@ -1,6 +1,5 @@
-import { beforeEach, describe, expect, test, vi } from 'vitest';
+import { beforeEach, describe, expect, fail, test, vi } from 'vitest';
 import { loopAllEntries } from './loop-all-entries.js';
-import { ResizeObserverSingleEntryCallback } from './resize-observer-single-entry-callback.js';
 
 describe('loop all entries', () => {
     let entries: ResizeObserverEntry[];
@@ -35,8 +34,11 @@ describe('loop all entries', () => {
             }
         });
 
-        expect(() =>
-            loopAllEntries({ entries, singleEntryCallback })
-        ).toThrow();
+        // For some reason expect().not.toThrow() was not working.
+        try {
+            loopAllEntries({ entries, singleEntryCallback });
+        } catch (error) {
+            fail('this should not throw');
+        }
     });
 });
