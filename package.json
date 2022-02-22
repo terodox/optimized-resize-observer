@@ -18,6 +18,7 @@
     "build": "vite build",
     "postversion": "git push --follow-tags",
     "prepublish": "npm run build",
+    "preversion": "npm test",
     "start": "vite",
     "start-bundled": "vite",
     "test": "vitest",
