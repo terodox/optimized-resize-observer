@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, fail, test, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import * as LoopAllEntriesModule from './loop-all-entries';
 import { debouncedResizeObserver } from './index';
 
