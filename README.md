@@ -1,5 +1,7 @@
 # optimized-resize-observer
 
+[![Build Status](https://cloud.drone.io/api/badges/terodox/optimized-resize-observer/status.svg)](https://cloud.drone.io/terodox/optimized-resize-observer)
+
 ResizeObservers can be tricky to throttle and debounce. This package delivers both in a very easy to use format!
 
 ## debouncedResizeObserver

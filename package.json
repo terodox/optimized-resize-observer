@@ -1,11 +1,13 @@
 {
   "name": "optimized-resize-observer",
   "version": "0.0.0",
-  "description": "A simple contract for creating ResizeObervers with some basic bells and whistles",
+  "description": "ResizeObservers can be tricky to throttle and debounce. This package delivers both in a very easy to use format!",
   "main": "index.js",
   "scripts": {
+    "postversion": "git push --follow-tags",
     "start": "vite",
-    "test": "vitest"
+    "test": "vitest",
+    "update": "npx npm-check -uE"
   },
   "repository": {
     "type": "git",

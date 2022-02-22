@@ -1,0 +1,34 @@
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: install
+  pull: default
+  image: node:16
+  commands:
+  - npm ci
+
+- name: test
+  pull: default
+  image: node:16
+  commands:
+  - npm test
+
+- name: deploy
+  pull: default
+  image: node:16
+  commands:
+  - echo "//registry.npmjs.org/:_authToken=$${NPM_DEPLOY_TOKEN}" > ~/.npmrc
+  - echo "unsafe-perm=true" >> ~/.npmrc
+  - npm publish
+  environment:
+    NPM_DEPLOY_TOKEN:
+      from_secret: npm_deploy_token
+  when:
+    event:
+    - tag
