@@ -46,3 +46,21 @@ const resizeObserver = throttledResizeObserver({
 
 resizeObserver.observe(document.querySelector('#my-element-id'));
 ```
+
+## Testing
+
+Until the ResizeObserver class is supported by jsdom, here's an option for testing:
+
+```javascript
+beforeEach(() => {
+    Object.defineProperty(global, "ResizeObserver", {
+        writable: true,
+        value: jest.fn().mockImplementation(() => ({
+            observe: jest.fn(),
+            unobserve: jest.fn(),
+            disconnect: jest.fn(),
+        })),
+    });
+});
+```
+

@@ -13,7 +13,7 @@
   "scripts": {
     "build": "vite build",
     "postversion": "git push --follow-tags",
-    "preversion": "npm test",
+    "preversion": "vitest run",
     "start": "vite",
     "start-bundled": "vite",
     "test": "vitest",
