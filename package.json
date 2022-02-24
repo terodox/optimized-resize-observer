@@ -42,7 +42,6 @@
   "homepage": "https://github.com/terodox/optimized-resize-observer#readme",
   "devDependencies": {
     "jsdom": "19.0.0",
-    "tsc": "2.0.4",
     "typescript": "4.5.5",
     "vite": "2.8.4",
     "vite-dts": "1.0.4",
