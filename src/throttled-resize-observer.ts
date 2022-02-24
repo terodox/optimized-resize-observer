@@ -38,7 +38,7 @@ export function throttledResizeObserver({
                 singleEntryCallback,
             });
             accumulatedEntries.clear();
-            timerId = 0;
+            clearTimeout(timerId);
         }, throttleTimeInMs);
     });
 }
