@@ -18,11 +18,12 @@ export function debouncedResizeObserver({
     debounceTimeInMs: number;
 }) {
     const accumulatedEntries = new Map<Element, ResizeObserverEntry>();
-    let timerId: ReturnType<typeof setTimeout>;
+    let timerId: ReturnType<typeof setTimeout> | undefined;
 
     return new ResizeObserver((entries) => {
         if (timerId) {
             clearTimeout(timerId);
+            timerId = undefined;
         }
 
         entries.forEach((entry) => accumulatedEntries.set(entry.target, entry));

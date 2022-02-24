@@ -18,7 +18,7 @@ export function throttledResizeObserver({
     throttleTimeInMs: number;
 }) {
     const accumulatedEntries = new Map<Element, ResizeObserverEntry>();
-    let timerId: ReturnType<typeof setTimeout>;
+    let timerId: ReturnType<typeof setTimeout> | undefined;
 
     return new ResizeObserver((entries) => {
         entries.forEach((entry) => accumulatedEntries.set(entry.target, entry));
@@ -39,6 +39,7 @@ export function throttledResizeObserver({
             });
             accumulatedEntries.clear();
             clearTimeout(timerId);
+            timerId = undefined;
         }, throttleTimeInMs);
     });
 }
