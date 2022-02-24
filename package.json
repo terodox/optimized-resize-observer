@@ -11,12 +11,14 @@
     }
   },
   "scripts": {
+    "clean": "rm -rf dist/",
     "build": "vite build",
     "postversion": "git push --follow-tags",
     "preversion": "vitest run",
     "start": "vite",
     "start-bundled": "vite",
     "test": "vitest",
+    "posttest": "npm run clean && tsc --excludeFiles *.spec.ts && npm run clean",
     "update": "npx npm-check -uE"
   },
   "repository": {
@@ -41,6 +43,7 @@
   "devDependencies": {
     "jsdom": "19.0.0",
     "tsc": "2.0.4",
+    "typescript": "4.5.5",
     "vite": "2.8.4",
     "vite-dts": "1.0.4",
     "vitest": "0.5.0"
