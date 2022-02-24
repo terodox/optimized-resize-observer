@@ -14,7 +14,7 @@
     "clean": "rm -rf dist/",
     "build": "vite build",
     "postversion": "git push --follow-tags",
-    "preversion": "vitest run",
+    "preversion": "npm test -- run",
     "start": "vite",
     "start-bundled": "vite",
     "test": "vitest",
