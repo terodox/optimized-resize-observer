@@ -7,10 +7,14 @@
     <script type="module">
         import { debouncedResizeObserver, throttledResizeObserver } from '../src/index.ts';
 
-        const debouncedOne = document.querySelector('#debounced-one');
-        const debouncedTwo = document.querySelector('#debounced-two');
-        const throttledOne = document.querySelector('#throttled-one');
-        const throttledTwo = document.querySelector('#throttled-two');
+        const debounced100msOne = document.querySelector('#debounced-100ms-one');
+        const debounced100msTwo = document.querySelector('#debounced-100ms-two');
+        const debounced1000msOne = document.querySelector('#debounced-1000ms-one');
+        const debounced1000msTwo = document.querySelector('#debounced-1000ms-two');
+        const throttled100msOne = document.querySelector('#throttled-100ms-one');
+        const throttled100msTwo = document.querySelector('#throttled-100ms-two');
+        const throttled1000msOne = document.querySelector('#throttled-1000ms-one');
+        const throttled1000msTwo = document.querySelector('#throttled-1000ms-two');
         const unobserved = document.querySelector('#unobserved');
 
         function updatedTimeUpdater({entry}) {
@@ -27,26 +31,40 @@
             singleEntryCallback: updatedTimeUpdater,
             debounceTimeInMs: 100
         });
-        debouncedObserverOne.observe(debouncedOne);
+        debouncedObserverOne.observe(debounced100msOne);
+        debouncedObserverOne.observe(debounced100msTwo);
         const debouncedObserverTwo = debouncedResizeObserver({
             singleEntryCallback: updatedTimeUpdater,
             debounceTimeInMs: 1000
         });
-        debouncedObserverTwo.observe(debouncedTwo);
+        debouncedObserverTwo.observe(debounced1000msOne);
+        debouncedObserverTwo.observe(debounced1000msTwo);
 
         // throttled
         const throttledObserverOne = throttledResizeObserver({
             singleEntryCallback: updatedTimeUpdater,
             throttleTimeInMs: 100
         });
-        throttledObserverOne.observe(throttledOne);
+        throttledObserverOne.observe(throttled100msOne);
+        throttledObserverOne.observe(throttled100msTwo);
         const throttledObserverTwo = throttledResizeObserver({
             singleEntryCallback: updatedTimeUpdater,
             throttleTimeInMs: 1000
         });
-        throttledObserverTwo.observe(throttledTwo);
+        throttledObserverTwo.observe(throttled1000msOne);
+        throttledObserverTwo.observe(throttled1000msTwo);
+
     </script>
     <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #222;
+                color: #DDD;
+            }
+            div {
+                border: 1px solid #DDD;
+            }
+        }
         div {
             border: 1px solid #333;
         }
@@ -55,15 +73,19 @@
 <body>
     <h1>Optimized Resize Observer Demo</h1>
     <h2>Debounce: 100ms</h2>
-    <div id="debounced-one"></div>
+    <div id="debounced-100ms-one"></div>
+    <div id="debounced-100ms-two"></div>
     <h2>Debounce: 1000ms</h2>
-    <div id="debounced-two"></div>
+    <div id="debounced-1000ms-one"></div>
+    <div id="debounced-1000ms-two"></div>
 
     <h2>Throttle: 100ms</h2>
-    <div id="throttled-one"></div>
+    <div id="throttled-100ms-one"></div>
+    <div id="throttled-100ms-two"></div>
 
     <h2>Throttle: 1000ms</h2>
-    <div id="throttled-two"></div>
+    <div id="throttled-1000ms-one"></div>
+    <div id="throttled-1000ms-two"></div>
 
     <h2>Unobserved</h2>
     <div id="unobserved">Will not change - unobserved</div>
